@@ -8,10 +8,13 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+// Prints error message
 static void msg(const char *msg) {
   fprintf(stderr, "%s\n", msg);
 }
 
+// Prints an error message and the last error code
+// Intended to be used when the program should terminate due to an error
 static void die(const char *msg) {
   int err = errno;
   fprintf(stderr, "[%d] %s\n", err, msg);
